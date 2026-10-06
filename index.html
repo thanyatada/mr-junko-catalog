@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MR-JUNKO | เลือกลายเสื้อ</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Tahoma, sans-serif;
+  background: #f5f5f5;
+  color: #111;
+}
+
+/* หัวเว็บ */
+.header {
+  background: #ffffff;
+  text-align: center;
+  padding: 24px 15px 18px;
+  border-bottom: 1px solid #ddd;
+}
+
+.logo {
+  font-size: 38px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.thai {
+  color: #d71920;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.header h2 {
+  font-size: 22px;
+  margin: 22px 0 5px;
+}
+
+.header p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 16px;
+}
+
+/* ช่องค้นหา */
+.search-area {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 0 15px;
+}
+
+#search {
+  width: 100%;
+  padding: 15px 18px;
+  font-size: 18px;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  outline: none;
+  background: white;
+}
+
+#search:focus {
+  border-color: #222;
+}
+
+/* จำนวนลาย */
+.count {
+  text-align: center;
+  margin: 5px 0 20px;
+  color: #555;
+}
+
+/* ตารางสินค้า */
+.catalog {
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 15px 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #e2e2e2;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.code {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 10px;
+}
+
+/* ดูรูปใหญ่ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.9);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal img {
+  max-width: 95%;
+  max-height: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: white;
+  font-size: 45px;
+  cursor: pointer;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .catalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* มือถือ */
+@media (max-width: 600px) {
+  .logo {
+    font-size: 32px;
+  }
+
+  .header h2 {
+    font-size: 20px;
+  }
+
+  .catalog {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 0 8px 40px;
+  }
+
+  .code {
+    font-size: 16px;
+    padding: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="logo">MR-JUNKO</div>
+  <div class="thai">สินค้าไทย ผลิตในประเทศไทย</div>
+
+  <h2>เลือกลายที่ชอบ แล้วแจ้งรหัสกับแอดมิน</h2>
+  <p>กดที่รูปเพื่อดูภาพขนาดใหญ่</p>
+</div>
+
+<div class="search-area">
+  <input
+    type="text"
+    id="search"
+    placeholder="ค้นหารหัส เช่น 4056 หรือ N-4056"
+    onkeyup="searchProduct()"
+  >
+</div>
+
+<div class="count" id="count"></div>
+
+<div class="catalog" id="catalog"></div>
+
+<div class="modal" id="modal" onclick="closeModal()">
+  <span class="close">&times;</span>
+  <img id="modalImg">
+</div>
+
+<script>
+
+const products = [
+  "N-3919",
+  "N-3982",
+  "N-3989",
+  "N-3992",
+  "N-3993",
+  "N-3995",
+  "N-3997",
+  "N-4006",
+  "N-4009",
+  "N-4035",
+  "N-4040",
+  "N-4056",
+  "N-4073",
+  "N-4078",
+  "N-4079",
+  "N-4102",
+  "N-4108",
+  "N-4119",
+  "N-4142"
+];
+
+const catalog = document.getElementById("catalog");
+
+function showProducts(list) {
+
+  catalog.innerHTML = "";
+
+  list.forEach(code => {
+
+    const item = document.createElement("div");
+    item.className = "item";
+
+    item.innerHTML = `
+      <img
+        src="${code}.jpg"
+        alt="เสื้อ MR-JUNKO ${code}"
+        loading="lazy"
+        onclick="openModal('${code}.jpg')"
+      >
+      <div class="code">${code}</div>
+    `;
+
+    catalog.appendChild(item);
+  });
+
+  document.getElementById("count").innerText =
+    "แสดง " + list.length + " ลาย";
+}
+
+function searchProduct() {
+
+  const keyword =
+    document.getElementById("search")
+    .value
+    .toUpperCase()
+    .trim();
+
+  const result = products.filter(code =>
+    code.includes(keyword)
+  );
+
+  showProducts(result);
+}
+
+function openModal(image) {
+
+  document.getElementById("modalImg").src = image;
+  document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+showProducts(products);
+
+</script>
+
+</body>
+</html>
