@@ -159,6 +159,7 @@ body{
 .product img{
   width:100%;
   display:block;
+  cursor:zoom-in;
 }
 
 .code{
@@ -176,6 +177,7 @@ body{
 }
 
 @media(max-width:650px){
+
   .logo{
     font-size:30px;
   }
@@ -200,7 +202,8 @@ body{
     font-size:22px;
   }
 }
-/* IMAGE ZOOM */
+
+/* IMAGE GALLERY */
 .lightbox{
   display:none;
   position:fixed;
@@ -214,6 +217,7 @@ body{
   justify-content:center;
   flex-direction:column;
   padding:20px;
+  touch-action:pan-y;
 }
 
 .lightbox.show{
@@ -222,14 +226,16 @@ body{
 
 .lightbox img{
   max-width:95%;
-  max-height:85vh;
+  max-height:82vh;
   object-fit:contain;
   border-radius:6px;
+  user-select:none;
+  -webkit-user-select:none;
 }
 
 .lightbox-code{
   color:#fff;
-  font-size:20px;
+  font-size:22px;
   font-weight:bold;
   margin-top:12px;
 }
@@ -237,16 +243,65 @@ body{
 .lightbox-close{
   position:absolute;
   top:15px;
-  right:20px;
+  right:22px;
   color:#fff;
-  font-size:42px;
+  font-size:46px;
   cursor:pointer;
+  z-index:10002;
   line-height:1;
 }
 
-.product img{
-  cursor:zoom-in;
-}  
+.lightbox-prev,
+.lightbox-next{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  background:rgba(0,0,0,.45);
+  color:#fff;
+  font-size:55px;
+  width:55px;
+  height:80px;
+  cursor:pointer;
+  z-index:10001;
+  border-radius:8px;
+}
+
+.lightbox-prev{
+  left:10px;
+}
+
+.lightbox-next{
+  right:10px;
+}
+
+@media(max-width:650px){
+
+  .lightbox{
+    padding:10px;
+  }
+
+  .lightbox img{
+    max-width:100%;
+    max-height:80vh;
+  }
+
+  .lightbox-prev,
+  .lightbox-next{
+    font-size:42px;
+    width:44px;
+    height:65px;
+  }
+
+  .lightbox-prev{
+    left:3px;
+  }
+
+  .lightbox-next{
+    right:3px;
+  }
+}
+
 </style>
 </head>
 
@@ -258,317 +313,1059 @@ body{
 </header>
 
 <nav class="nav">
-  <button onclick="showCategory('new',this)" class="active">🆕 ลายใหม่ล่าสุด</button>
-  <button onclick="toggleMen(this)">👔 ผู้ชาย ▼</button>
-  <button onclick="showCategory('women',this)">👚 ผู้หญิง</button>
-  <button onclick="showCategory('kids',this)">🧒 เด็ก</button>
+
+  <button
+    onclick="showCategory('new',this)"
+    class="active">
+    🆕 ลายใหม่ล่าสุด
+  </button>
+
+  <button onclick="toggleMen(this)">
+    👔 ผู้ชาย ▼
+  </button>
+
+  <button onclick="showCategory('women',this)">
+    👚 ผู้หญิง
+  </button>
+
+  <button onclick="showCategory('kids',this)">
+    🧒 เด็ก
+  </button>
+
 </nav>
 
+
+<!-- MEN MENU -->
 <div id="menPanel" class="men-panel">
 
   <div class="men-types">
-    <button onclick="showMenType('shirt')">👔 เสื้อเชิ้ต</button>
-    <button onclick="showMenType('tshirt')">👕 เสื้อคอกลม</button>
+
+    <button onclick="showMenType('shirt')">
+      👔 เสื้อเชิ้ต
+    </button>
+
+    <button onclick="showMenType('tshirt')">
+      👕 เสื้อคอกลม
+    </button>
+
+    <button onclick="showMenType('set')">
+      👔➕🩳 ชุดเสื้อ+กางเกง
+    </button>
+
   </div>
 
+
+  <!-- SHIRT -->
   <div id="shirtPatterns" class="pattern-panel">
-    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
-    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
-    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
-    <button onclick="filterPattern('japanese')">🌸 ลายญี่ปุ่น</button>
-    <button onclick="filterPattern('baroque')">✨ ลายหลุยส์</button>
-    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
+
+    <button onclick="filterPattern('fish')">
+      🐟 ลายปลา
+    </button>
+
+    <button onclick="filterPattern('tiger')">
+      🐯 ลายเสือ
+    </button>
+
+    <button onclick="filterPattern('dragon')">
+      🐉 ลายมังกร
+    </button>
+
+    <button onclick="filterPattern('japanese')">
+      🌸 ลายญี่ปุ่น
+    </button>
+
+    <button onclick="filterPattern('baroque')">
+      ✨ ลายหลุยส์
+    </button>
+
+    <button onclick="filterPattern('other')">
+      ลายอื่นๆ
+    </button>
+
   </div>
 
+
+  <!-- T-SHIRT -->
   <div id="tshirtPatterns" class="pattern-panel">
-    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
-    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
-    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
-    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
+
+    <button onclick="filterPattern('fish')">
+      🐟 ลายปลา
+    </button>
+
+    <button onclick="filterPattern('tiger')">
+      🐯 ลายเสือ
+    </button>
+
+    <button onclick="filterPattern('dragon')">
+      🐉 ลายมังกร
+    </button>
+
+    <button onclick="filterPattern('other')">
+      ลายอื่นๆ
+    </button>
+
+  </div>
+
+
+  <!-- SHIRT + PANTS SET -->
+  <div id="setPatterns" class="pattern-panel">
+
+    <button onclick="filterPattern('fish')">
+      🐟 ลายปลา
+    </button>
+
+    <button onclick="filterPattern('tiger')">
+      🐯 ลายเสือ
+    </button>
+
+    <button onclick="filterPattern('dragon')">
+      🐉 ลายมังกร
+    </button>
+
+    <button onclick="filterPattern('japanese')">
+      🌸 ลายญี่ปุ่น
+    </button>
+
+    <button onclick="filterPattern('baroque')">
+      ✨ ลายหลุยส์
+    </button>
+
+    <button onclick="filterPattern('other')">
+      ลายอื่นๆ
+    </button>
+
   </div>
 
 </div>
 
+
 <main class="container">
 
-  <h2 id="sectionTitle" class="section-title">🆕 ลายใหม่ล่าสุด</h2>
+  <h2 id="sectionTitle" class="section-title">
+    🆕 ลายใหม่ล่าสุด
+  </h2>
 
   <div class="search-box">
+
     <input
       id="search"
       type="text"
       placeholder="🔎 ค้นหารหัสสินค้า เช่น N-4056 หรือ 4056"
       oninput="searchProducts()">
+
   </div>
+
 
   <div id="products" class="grid">
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-3919.jpg" alt="N-3919">
-      <div class="code">N-3919</div>
+
+      <div class="code">
+        N-3919
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-3982.jpg" alt="N-3982">
-      <div class="code">N-3982</div>
+
+      <div class="code">
+        N-3982
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-3989.jpg" alt="N-3989">
-      <div class="code">N-3989</div>
+
+      <div class="code">
+        N-3989
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-3992.jpg" alt="N-3992">
-      <div class="code">N-3992</div>
+
+      <div class="code">
+        N-3992
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="japanese">
+
       <img src="N-3993.jpg" alt="N-3993">
-      <div class="code">N-3993</div>
+
+      <div class="code">
+        N-3993
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-3995.jpg" alt="N-3995">
-      <div class="code">N-3995</div>
+
+      <div class="code">
+        N-3995
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-3997.jpg" alt="N-3997">
-      <div class="code">N-3997</div>
+
+      <div class="code">
+        N-3997
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-4006.jpg" alt="N-4006">
-      <div class="code">N-4006</div>
+
+      <div class="code">
+        N-4006
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-4009.jpg" alt="N-4009">
-      <div class="code">N-4009</div>
+
+      <div class="code">
+        N-4009
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="japanese">
+
       <img src="N-4035.jpg" alt="N-4035">
-      <div class="code">N-4035</div>
+
+      <div class="code">
+        N-4035
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-4040.jpg" alt="N-4040">
-      <div class="code">N-4040</div>
+
+      <div class="code">
+        N-4040
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-4056.jpg" alt="N-4056">
-      <div class="code">N-4056</div>
+
+      <div class="code">
+        N-4056
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="other">
+
       <img src="N-4073.jpg" alt="N-4073">
-      <div class="code">N-4073</div>
+
+      <div class="code">
+        N-4073
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-4078.jpg" alt="N-4078">
-      <div class="code">N-4078</div>
+
+      <div class="code">
+        N-4078
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-4079.jpg" alt="N-4079">
-      <div class="code">N-4079</div>
+
+      <div class="code">
+        N-4079
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="fish">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="fish">
+
       <img src="N-4102.jpg" alt="N-4102">
-      <div class="code">N-4102</div>
+
+      <div class="code">
+        N-4102
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-4108.jpg" alt="N-4108">
-      <div class="code">N-4108</div>
+
+      <div class="code">
+        N-4108
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="tiger">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="tiger">
+
       <img src="N-4119.jpg" alt="N-4119">
-      <div class="code">N-4119</div>
+
+      <div class="code">
+        N-4119
+      </div>
+
     </div>
 
-    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+
+    <div
+      class="product"
+      data-category="men new"
+      data-type="shirt"
+      data-pattern="baroque">
+
       <img src="N-4142.jpg" alt="N-4142">
-      <div class="code">N-4142</div>
+
+      <div class="code">
+        N-4142
+      </div>
+
     </div>
+
 
   </div>
+
 </main>
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <span class="lightbox-close">&times;</span>
-  <img id="lightboxImage" src="" alt="">
-  <div id="lightboxCode" class="lightbox-code"></div>
-</div>  
+
+<!-- IMAGE GALLERY -->
+<div id="lightbox" class="lightbox">
+
+  <span
+    class="lightbox-close"
+    onclick="closeLightbox()">
+    &times;
+  </span>
+
+  <button
+    class="lightbox-prev"
+    onclick="event.stopPropagation(); changeImage(-1)">
+    &#8249;
+  </button>
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="">
+
+  <button
+    class="lightbox-next"
+    onclick="event.stopPropagation(); changeImage(1)">
+    &#8250;
+  </button>
+
+  <div
+    id="lightboxCode"
+    class="lightbox-code">
+  </div>
+
+</div>
+
+
 <script>
+
 let currentType = "";
 
+
+/* HIDE PRODUCTS */
 function hideAll(){
-  document.querySelectorAll(".product").forEach(p=>{
-    p.style.display="none";
-  });
+
+  document
+    .querySelectorAll(".product")
+    .forEach(p=>{
+
+      p.style.display="none";
+
+    });
+
 }
 
+
+/* ACTIVE MAIN MENU */
 function setActive(btn){
-  document.querySelectorAll(".nav button").forEach(b=>{
-    b.classList.remove("active");
-  });
 
-  if(btn) btn.classList.add("active");
+  document
+    .querySelectorAll(".nav button")
+    .forEach(b=>{
+
+      b.classList.remove("active");
+
+    });
+
+  if(btn){
+    btn.classList.add("active");
+  }
+
 }
 
+
+/* MAIN CATEGORY */
 function showCategory(category,btn){
 
-  document.getElementById("menPanel").classList.remove("show");
+  document
+    .getElementById("menPanel")
+    .classList.remove("show");
 
   setActive(btn);
 
   hideAll();
 
-  const title=document.getElementById("sectionTitle");
+  const title =
+    document.getElementById("sectionTitle");
+
 
   if(category==="new"){
-    title.textContent="🆕 ลายใหม่ล่าสุด";
 
-    document.querySelectorAll(".product").forEach(p=>{
-      if(p.dataset.category.includes("new")){
-        p.style.display="block";
-      }
-    });
+    title.textContent =
+      "🆕 ลายใหม่ล่าสุด";
+
+    document
+      .querySelectorAll(".product")
+      .forEach(p=>{
+
+        if(
+          p.dataset.category.includes("new")
+        ){
+          p.style.display="block";
+        }
+
+      });
+
   }
+
 
   if(category==="women"){
-    title.textContent="👚 เสื้อผู้หญิง";
 
-    document.querySelectorAll(".product").forEach(p=>{
-      if(p.dataset.category.includes("women")){
-        p.style.display="block";
-      }
-    });
+    title.textContent =
+      "👚 เสื้อผู้หญิง";
+
+    document
+      .querySelectorAll(".product")
+      .forEach(p=>{
+
+        if(
+          p.dataset.category.includes("women")
+        ){
+          p.style.display="block";
+        }
+
+      });
+
   }
+
 
   if(category==="kids"){
-    title.textContent="🧒 เสื้อเด็ก";
 
-    document.querySelectorAll(".product").forEach(p=>{
-      if(p.dataset.category.includes("kids")){
-        p.style.display="block";
-      }
-    });
+    title.textContent =
+      "🧒 เสื้อเด็ก";
+
+    document
+      .querySelectorAll(".product")
+      .forEach(p=>{
+
+        if(
+          p.dataset.category.includes("kids")
+        ){
+          p.style.display="block";
+        }
+
+      });
+
   }
+
 }
 
+
+/* MEN */
 function toggleMen(btn){
 
   setActive(btn);
 
-  const panel=document.getElementById("menPanel");
+  const panel =
+    document.getElementById("menPanel");
+
   panel.classList.toggle("show");
 
-  document.getElementById("sectionTitle").textContent="👔 เสื้อผู้ชาย";
+  document
+    .getElementById("sectionTitle")
+    .textContent =
+      "👔 เสื้อผู้ชาย";
 
   hideAll();
 
-  document.querySelectorAll(".product").forEach(p=>{
-    if(p.dataset.category.includes("men")){
-      p.style.display="block";
-    }
-  });
+  document
+    .querySelectorAll(".product")
+    .forEach(p=>{
+
+      if(
+        p.dataset.category.includes("men")
+      ){
+        p.style.display="block";
+      }
+
+    });
+
 }
 
+
+/* MEN TYPE */
 function showMenType(type){
 
   currentType=type;
 
-  document.getElementById("shirtPatterns").classList.remove("show");
-  document.getElementById("tshirtPatterns").classList.remove("show");
+  document
+    .getElementById("shirtPatterns")
+    .classList.remove("show");
+
+  document
+    .getElementById("tshirtPatterns")
+    .classList.remove("show");
+
+  document
+    .getElementById("setPatterns")
+    .classList.remove("show");
+
 
   if(type==="shirt"){
-    document.getElementById("shirtPatterns").classList.add("show");
-    document.getElementById("sectionTitle").textContent="👔 เสื้อเชิ้ตผู้ชาย";
+
+    document
+      .getElementById("shirtPatterns")
+      .classList.add("show");
+
+    document
+      .getElementById("sectionTitle")
+      .textContent =
+        "👔 เสื้อเชิ้ตผู้ชาย";
+
   }
 
+
   if(type==="tshirt"){
-    document.getElementById("tshirtPatterns").classList.add("show");
-    document.getElementById("sectionTitle").textContent="👕 เสื้อคอกลมผู้ชาย";
+
+    document
+      .getElementById("tshirtPatterns")
+      .classList.add("show");
+
+    document
+      .getElementById("sectionTitle")
+      .textContent =
+        "👕 เสื้อคอกลมผู้ชาย";
+
   }
+
+
+  if(type==="set"){
+
+    document
+      .getElementById("setPatterns")
+      .classList.add("show");
+
+    document
+      .getElementById("sectionTitle")
+      .textContent =
+        "👔➕🩳 ชุดเสื้อ+กางเกงผู้ชาย";
+
+  }
+
 
   hideAll();
 
-  document.querySelectorAll(".product").forEach(p=>{
-    if(p.dataset.type===type){
-      p.style.display="block";
-    }
-  });
+
+  document
+    .querySelectorAll(".product")
+    .forEach(p=>{
+
+      if(
+        p.dataset.type===type
+      ){
+        p.style.display="block";
+      }
+
+    });
+
 }
 
+
+/* PATTERN FILTER */
 function filterPattern(pattern){
 
   hideAll();
 
-  document.querySelectorAll(".product").forEach(p=>{
-    if(
-      p.dataset.type===currentType &&
-      p.dataset.pattern===pattern
-    ){
-      p.style.display="block";
-    }
-  });
+  document
+    .querySelectorAll(".product")
+    .forEach(p=>{
+
+      if(
+        p.dataset.type===currentType &&
+        p.dataset.pattern===pattern
+      ){
+        p.style.display="block";
+      }
+
+    });
+
 }
 
+
+/* SEARCH */
 function searchProducts(){
 
-  const text=document.getElementById("search").value
-    .toLowerCase()
-    .replace(/\s/g,"");
+  const text =
+    document
+      .getElementById("search")
+      .value
+      .toLowerCase()
+      .replace(/\s/g,"");
+
 
   if(text===""){
-    document.querySelectorAll(".product").forEach(p=>{
-      p.style.display="block";
+
+    document
+      .querySelectorAll(".product")
+      .forEach(p=>{
+
+        p.style.display="block";
+
+      });
+
+    return;
+
+  }
+
+
+  document
+    .querySelectorAll(".product")
+    .forEach(p=>{
+
+      const code =
+        p.querySelector(".code")
+        .textContent
+        .toLowerCase();
+
+      const cleanCode =
+        code.replace("n-","");
+
+
+      if(
+        code.includes(text) ||
+        cleanCode.includes(
+          text.replace("n-","")
+        )
+      ){
+
+        p.style.display="block";
+
+      }else{
+
+        p.style.display="none";
+
+      }
+
     });
+
+}
+
+
+/* =========================
+   IMAGE GALLERY
+========================= */
+
+let galleryProducts = [];
+let currentImageIndex = 0;
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+
+/* GET ONLY VISIBLE PRODUCTS */
+function getVisibleProducts(){
+
+  return Array
+    .from(
+      document.querySelectorAll(".product")
+    )
+    .filter(p=>{
+
+      return (
+        window
+          .getComputedStyle(p)
+          .display !== "none"
+      );
+
+    });
+
+}
+
+
+/* OPEN IMAGE */
+function openLightbox(product){
+
+  galleryProducts =
+    getVisibleProducts();
+
+  currentImageIndex =
+    galleryProducts.indexOf(product);
+
+
+  if(currentImageIndex < 0){
+
+    galleryProducts=[product];
+
+    currentImageIndex=0;
+
+  }
+
+
+  showGalleryImage();
+
+
+  document
+    .getElementById("lightbox")
+    .classList.add("show");
+
+
+  document.body.style.overflow="hidden";
+
+}
+
+
+/* SHOW CURRENT IMAGE */
+function showGalleryImage(){
+
+  const product =
+    galleryProducts[currentImageIndex];
+
+  if(!product){
     return;
   }
 
-  document.querySelectorAll(".product").forEach(p=>{
 
-    const code=p.querySelector(".code")
-      .textContent
-      .toLowerCase();
+  const img =
+    product.querySelector("img");
 
-    const cleanCode=code.replace("n-","");
+  const code =
+    product
+      .querySelector(".code")
+      .textContent;
 
-    if(code.includes(text) || cleanCode.includes(text.replace("n-",""))){
-      p.style.display="block";
-    }else{
-      p.style.display="none";
-    }
-  });
+
+  document
+    .getElementById("lightboxImage")
+    .src =
+      img.src;
+
+
+  document
+    .getElementById("lightboxImage")
+    .alt =
+      code;
+
+
+  document
+    .getElementById("lightboxCode")
+    .textContent =
+      code;
+
 }
- document.querySelectorAll(".product img").forEach(img=>{
-  img.addEventListener("click",function(e){
-    e.stopPropagation();
 
-    const product=this.closest(".product");
-    const code=product.querySelector(".code").textContent;
 
-    document.getElementById("lightboxImage").src=this.src;
-    document.getElementById("lightboxCode").textContent=code;
-    document.getElementById("lightbox").classList.add("show");
+/* NEXT / PREVIOUS */
+function changeImage(direction){
 
-    document.body.style.overflow="hidden";
-  });
-});
+  if(
+    galleryProducts.length <= 1
+  ){
+    return;
+  }
 
+
+  currentImageIndex += direction;
+
+
+  if(
+    currentImageIndex >=
+    galleryProducts.length
+  ){
+
+    currentImageIndex=0;
+
+  }
+
+
+  if(
+    currentImageIndex < 0
+  ){
+
+    currentImageIndex =
+      galleryProducts.length - 1;
+
+  }
+
+
+  showGalleryImage();
+
+}
+
+
+/* CLOSE IMAGE */
 function closeLightbox(){
-  document.getElementById("lightbox").classList.remove("show");
+
+  document
+    .getElementById("lightbox")
+    .classList.remove("show");
+
   document.body.style.overflow="";
-} 
+
+}
+
+
+/* CLICK PRODUCT IMAGE */
+document
+  .querySelectorAll(".product img")
+  .forEach(img=>{
+
+    img.addEventListener(
+      "click",
+      function(e){
+
+        e.stopPropagation();
+
+        openLightbox(
+          this.closest(".product")
+        );
+
+      }
+    );
+
+  });
+
+
+const lightbox =
+  document.getElementById("lightbox");
+
+
+/* CLICK BLACK BACKGROUND TO CLOSE */
+lightbox.addEventListener(
+  "click",
+  function(e){
+
+    if(e.target===lightbox){
+      closeLightbox();
+    }
+
+  }
+);
+
+
+/* MOBILE SWIPE */
+lightbox.addEventListener(
+  "touchstart",
+  function(e){
+
+    touchStartX =
+      e.changedTouches[0].screenX;
+
+  },
+  {passive:true}
+);
+
+
+lightbox.addEventListener(
+  "touchend",
+  function(e){
+
+    touchEndX =
+      e.changedTouches[0].screenX;
+
+
+    const distance =
+      touchEndX - touchStartX;
+
+
+    if(
+      Math.abs(distance) < 50
+    ){
+      return;
+    }
+
+
+    /* SWIPE LEFT */
+    if(distance < 0){
+
+      changeImage(1);
+
+    }
+
+    /* SWIPE RIGHT */
+    else{
+
+      changeImage(-1);
+
+    }
+
+  },
+  {passive:true}
+);
+
+
+/* KEYBOARD */
+document.addEventListener(
+  "keydown",
+  function(e){
+
+    if(
+      !lightbox
+        .classList
+        .contains("show")
+    ){
+      return;
+    }
+
+
+    if(e.key==="ArrowRight"){
+
+      changeImage(1);
+
+    }
+
+
+    if(e.key==="ArrowLeft"){
+
+      changeImage(-1);
+
+    }
+
+
+    if(e.key==="Escape"){
+
+      closeLightbox();
+
+    }
+
+  }
+);
+
 </script>
 
 </body>
