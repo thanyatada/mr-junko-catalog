@@ -7,168 +7,197 @@
 <title>MR-JUNKO | เลือกลายเสื้อ</title>
 
 <style>
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-body {
-  margin: 0;
-  font-family: Arial, Tahoma, sans-serif;
-  background: #f5f5f5;
-  color: #111;
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:#f5f5f5;
+  color:#111;
 }
 
-/* หัวเว็บ */
-.header {
-  background: #ffffff;
-  text-align: center;
-  padding: 24px 15px 18px;
-  border-bottom: 1px solid #ddd;
+/* HEADER */
+.header{
+  background:#fff;
+  text-align:center;
+  padding:22px 15px 16px;
+  border-bottom:1px solid #ddd;
 }
 
-.logo {
-  font-size: 38px;
-  font-weight: 800;
-  margin: 0;
+.logo{
+  font-size:38px;
+  font-weight:800;
+  margin:0;
 }
 
-.thai {
-  color: #d71920;
-  font-size: 18px;
-  margin-top: 5px;
+.subtitle{
+  margin-top:6px;
+  font-size:16px;
+  color:#555;
 }
 
-.header h2 {
-  font-size: 22px;
-  margin: 22px 0 5px;
+/* MAIN MENU */
+.nav{
+  background:#111;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.header p {
-  margin: 5px 0;
-  color: #555;
-  font-size: 16px;
+.nav button{
+  border:0;
+  background:#111;
+  color:#fff;
+  font-size:16px;
+  padding:16px 22px;
+  cursor:pointer;
 }
 
-/* ช่องค้นหา */
-.search-area {
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 0 15px;
+.nav button:hover,
+.nav button.active{
+  background:#333;
 }
 
-#search {
-  width: 100%;
-  padding: 15px 18px;
-  font-size: 18px;
-  border: 1px solid #bbb;
-  border-radius: 10px;
-  outline: none;
-  background: white;
+/* MEN SUBMENU */
+.men-panel{
+  display:none;
+  background:#fff;
+  border-bottom:1px solid #ddd;
+  padding:15px;
 }
 
-#search:focus {
-  border-color: #222;
+.men-panel.show{
+  display:block;
 }
 
-/* จำนวนลาย */
-.count {
-  text-align: center;
-  margin: 5px 0 20px;
-  color: #555;
+.men-types{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  flex-wrap:wrap;
 }
 
-/* ตารางสินค้า */
-.catalog {
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-  padding: 0 15px 50px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+.men-types button{
+  background:#eee;
+  border:1px solid #ccc;
+  border-radius:8px;
+  padding:11px 20px;
+  font-size:16px;
+  cursor:pointer;
 }
 
-.item {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  border: 1px solid #e2e2e2;
-  cursor: pointer;
-  transition: 0.15s;
+.men-types button:hover{
+  background:#ddd;
 }
 
-.item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+/* PATTERN MENU */
+.pattern-panel{
+  display:none;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:13px;
 }
 
-.item img {
-  width: 100%;
-  height: auto;
-  display: block;
+.pattern-panel.show{
+  display:flex;
 }
 
-.code {
-  text-align: center;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 10px;
+.pattern-panel button{
+  background:#fff;
+  border:1px solid #bbb;
+  border-radius:20px;
+  padding:8px 15px;
+  cursor:pointer;
 }
 
-/* ดูรูปใหญ่ */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,.9);
-  align-items: center;
-  justify-content: center;
+/* CONTENT */
+.container{
+  max-width:1250px;
+  margin:auto;
+  padding:25px 18px 50px;
 }
 
-.modal img {
-  max-width: 95%;
-  max-height: 90%;
+.section-title{
+  text-align:center;
+  font-size:27px;
+  margin:5px 0 22px;
 }
 
-.close {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: white;
-  font-size: 45px;
-  cursor: pointer;
+.search-box{
+  max-width:500px;
+  margin:0 auto 25px;
 }
 
-/* Tablet */
-@media (max-width: 900px) {
-  .catalog {
-    grid-template-columns: repeat(3, 1fr);
+.search-box input{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font-size:16px;
+}
+
+/* PRODUCT GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.product{
+  background:#fff;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.product img{
+  width:100%;
+  display:block;
+}
+
+.code{
+  text-align:center;
+  padding:12px;
+  font-size:17px;
+  font-weight:bold;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(3,1fr);
   }
 }
 
-/* มือถือ */
-@media (max-width: 600px) {
-  .logo {
-    font-size: 32px;
+@media(max-width:650px){
+  .logo{
+    font-size:30px;
   }
 
-  .header h2 {
-    font-size: 20px;
+  .nav button{
+    font-size:14px;
+    padding:13px 10px;
+    flex:1;
+    white-space:nowrap;
   }
 
-  .catalog {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
-    padding: 0 8px 40px;
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
   }
 
-  .code {
-    font-size: 16px;
-    padding: 8px;
+  .container{
+    padding:18px 10px 40px;
+  }
+
+  .section-title{
+    font-size:22px;
   }
 }
 </style>
@@ -176,111 +205,299 @@ body {
 
 <body>
 
-<div class="header">
-  <div class="logo">MR-JUNKO</div>
-  <div class="thai">สินค้าไทย ผลิตในประเทศไทย</div>
+<header class="header">
+  <h1 class="logo">MR-JUNKO</h1>
+  <div class="subtitle">สินค้าไทย ผลิตในประเทศไทย</div>
+</header>
 
-  <h2>เลือกลายที่ชอบ แล้วแจ้งรหัสกับแอดมิน</h2>
-  <p>กดที่รูปเพื่อดูภาพขนาดใหญ่</p>
+<nav class="nav">
+  <button onclick="showCategory('new',this)" class="active">🆕 ลายใหม่ล่าสุด</button>
+  <button onclick="toggleMen(this)">👔 ผู้ชาย ▼</button>
+  <button onclick="showCategory('women',this)">👚 ผู้หญิง</button>
+  <button onclick="showCategory('kids',this)">🧒 เด็ก</button>
+</nav>
+
+<div id="menPanel" class="men-panel">
+
+  <div class="men-types">
+    <button onclick="showMenType('shirt')">👔 เสื้อเชิ้ต</button>
+    <button onclick="showMenType('tshirt')">👕 เสื้อคอกลม</button>
+  </div>
+
+  <div id="shirtPatterns" class="pattern-panel">
+    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
+    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
+    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
+    <button onclick="filterPattern('japanese')">🌸 ลายญี่ปุ่น</button>
+    <button onclick="filterPattern('baroque')">✨ ลายหลุยส์</button>
+    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
+  </div>
+
+  <div id="tshirtPatterns" class="pattern-panel">
+    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
+    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
+    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
+    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
+  </div>
+
 </div>
 
-<div class="search-area">
-  <input
-    type="text"
-    id="search"
-    placeholder="ค้นหารหัส เช่น 4056 หรือ N-4056"
-    onkeyup="searchProduct()"
-  >
-</div>
+<main class="container">
 
-<div class="count" id="count"></div>
+  <h2 id="sectionTitle" class="section-title">🆕 ลายใหม่ล่าสุด</h2>
 
-<div class="catalog" id="catalog"></div>
+  <div class="search-box">
+    <input
+      id="search"
+      type="text"
+      placeholder="🔎 ค้นหารหัสสินค้า เช่น N-4056 หรือ 4056"
+      oninput="searchProducts()">
+  </div>
 
-<div class="modal" id="modal" onclick="closeModal()">
-  <span class="close">&times;</span>
-  <img id="modalImg">
-</div>
+  <div id="products" class="grid">
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-3919.jpg" alt="N-3919">
+      <div class="code">N-3919</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-3982.jpg" alt="N-3982">
+      <div class="code">N-3982</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-3989.jpg" alt="N-3989">
+      <div class="code">N-3989</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-3992.jpg" alt="N-3992">
+      <div class="code">N-3992</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
+      <img src="N-3993.jpg" alt="N-3993">
+      <div class="code">N-3993</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-3995.jpg" alt="N-3995">
+      <div class="code">N-3995</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-3997.jpg" alt="N-3997">
+      <div class="code">N-3997</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-4006.jpg" alt="N-4006">
+      <div class="code">N-4006</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-4009.jpg" alt="N-4009">
+      <div class="code">N-4009</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
+      <img src="N-4035.jpg" alt="N-4035">
+      <div class="code">N-4035</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-4040.jpg" alt="N-4040">
+      <div class="code">N-4040</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-4056.jpg" alt="N-4056">
+      <div class="code">N-4056</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
+      <img src="N-4073.jpg" alt="N-4073">
+      <div class="code">N-4073</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-4078.jpg" alt="N-4078">
+      <div class="code">N-4078</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-4079.jpg" alt="N-4079">
+      <div class="code">N-4079</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="fish">
+      <img src="N-4102.jpg" alt="N-4102">
+      <div class="code">N-4102</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-4108.jpg" alt="N-4108">
+      <div class="code">N-4108</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="tiger">
+      <img src="N-4119.jpg" alt="N-4119">
+      <div class="code">N-4119</div>
+    </div>
+
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
+      <img src="N-4142.jpg" alt="N-4142">
+      <div class="code">N-4142</div>
+    </div>
+
+  </div>
+</main>
 
 <script>
+let currentType = "";
 
-const products = [
-  "N-3919",
-  "N-3982",
-  "N-3989",
-  "N-3992",
-  "N-3993",
-  "N-3995",
-  "N-3997",
-  "N-4006",
-  "N-4009",
-  "N-4035",
-  "N-4040",
-  "N-4056",
-  "N-4073",
-  "N-4078",
-  "N-4079",
-  "N-4102",
-  "N-4108",
-  "N-4119",
-  "N-4142"
-];
+function hideAll(){
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display="none";
+  });
+}
 
-const catalog = document.getElementById("catalog");
-
-function showProducts(list) {
-
-  catalog.innerHTML = "";
-
-  list.forEach(code => {
-
-    const item = document.createElement("div");
-    item.className = "item";
-
-    item.innerHTML = `
-      <img
-        src="${code}.jpg"
-        alt="เสื้อ MR-JUNKO ${code}"
-        loading="lazy"
-        onclick="openModal('${code}.jpg')"
-      >
-      <div class="code">${code}</div>
-    `;
-
-    catalog.appendChild(item);
+function setActive(btn){
+  document.querySelectorAll(".nav button").forEach(b=>{
+    b.classList.remove("active");
   });
 
-  document.getElementById("count").innerText =
-    "แสดง " + list.length + " ลาย";
+  if(btn) btn.classList.add("active");
 }
 
-function searchProduct() {
+function showCategory(category,btn){
 
-  const keyword =
-    document.getElementById("search")
-    .value
-    .toUpperCase()
-    .trim();
+  document.getElementById("menPanel").classList.remove("show");
 
-  const result = products.filter(code =>
-    code.includes(keyword)
-  );
+  setActive(btn);
 
-  showProducts(result);
+  hideAll();
+
+  const title=document.getElementById("sectionTitle");
+
+  if(category==="new"){
+    title.textContent="🆕 ลายใหม่ล่าสุด";
+
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("new")){
+        p.style.display="block";
+      }
+    });
+  }
+
+  if(category==="women"){
+    title.textContent="👚 เสื้อผู้หญิง";
+
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("women")){
+        p.style.display="block";
+      }
+    });
+  }
+
+  if(category==="kids"){
+    title.textContent="🧒 เสื้อเด็ก";
+
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("kids")){
+        p.style.display="block";
+      }
+    });
+  }
 }
 
-function openModal(image) {
+function toggleMen(btn){
 
-  document.getElementById("modalImg").src = image;
-  document.getElementById("modal").style.display = "flex";
+  setActive(btn);
+
+  const panel=document.getElementById("menPanel");
+  panel.classList.toggle("show");
+
+  document.getElementById("sectionTitle").textContent="👔 เสื้อผู้ชาย";
+
+  hideAll();
+
+  document.querySelectorAll(".product").forEach(p=>{
+    if(p.dataset.category.includes("men")){
+      p.style.display="block";
+    }
+  });
 }
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
+function showMenType(type){
+
+  currentType=type;
+
+  document.getElementById("shirtPatterns").classList.remove("show");
+  document.getElementById("tshirtPatterns").classList.remove("show");
+
+  if(type==="shirt"){
+    document.getElementById("shirtPatterns").classList.add("show");
+    document.getElementById("sectionTitle").textContent="👔 เสื้อเชิ้ตผู้ชาย";
+  }
+
+  if(type==="tshirt"){
+    document.getElementById("tshirtPatterns").classList.add("show");
+    document.getElementById("sectionTitle").textContent="👕 เสื้อคอกลมผู้ชาย";
+  }
+
+  hideAll();
+
+  document.querySelectorAll(".product").forEach(p=>{
+    if(p.dataset.type===type){
+      p.style.display="block";
+    }
+  });
 }
 
-showProducts(products);
+function filterPattern(pattern){
 
+  hideAll();
+
+  document.querySelectorAll(".product").forEach(p=>{
+    if(
+      p.dataset.type===currentType &&
+      p.dataset.pattern===pattern
+    ){
+      p.style.display="block";
+    }
+  });
+}
+
+function searchProducts(){
+
+  const text=document.getElementById("search").value
+    .toLowerCase()
+    .replace(/\s/g,"");
+
+  if(text===""){
+    document.querySelectorAll(".product").forEach(p=>{
+      p.style.display="block";
+    });
+    return;
+  }
+
+  document.querySelectorAll(".product").forEach(p=>{
+
+    const code=p.querySelector(".code")
+      .textContent
+      .toLowerCase();
+
+    const cleanCode=code.replace("n-","");
+
+    if(code.includes(text) || cleanCode.includes(text.replace("n-",""))){
+      p.style.display="block";
+    }else{
+      p.style.display="none";
+    }
+  });
+}
 </script>
 
 </body>
