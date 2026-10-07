@@ -200,6 +200,53 @@ body{
     font-size:22px;
   }
 }
+/* IMAGE ZOOM */
+.lightbox{
+  display:none;
+  position:fixed;
+  z-index:9999;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.92);
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  padding:20px;
+}
+
+.lightbox.show{
+  display:flex;
+}
+
+.lightbox img{
+  max-width:95%;
+  max-height:85vh;
+  object-fit:contain;
+  border-radius:6px;
+}
+
+.lightbox-code{
+  color:#fff;
+  font-size:20px;
+  font-weight:bold;
+  margin-top:12px;
+}
+
+.lightbox-close{
+  position:absolute;
+  top:15px;
+  right:20px;
+  color:#fff;
+  font-size:42px;
+  cursor:pointer;
+  line-height:1;
+}
+
+.product img{
+  cursor:zoom-in;
+}  
 </style>
 </head>
 
@@ -354,6 +401,11 @@ body{
   </div>
 </main>
 
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightboxImage" src="" alt="">
+  <div id="lightboxCode" class="lightbox-code"></div>
+</div>  
 <script>
 let currentType = "";
 
@@ -498,6 +550,25 @@ function searchProducts(){
     }
   });
 }
+ document.querySelectorAll(".product img").forEach(img=>{
+  img.addEventListener("click",function(e){
+    e.stopPropagation();
+
+    const product=this.closest(".product");
+    const code=product.querySelector(".code").textContent;
+
+    document.getElementById("lightboxImage").src=this.src;
+    document.getElementById("lightboxCode").textContent=code;
+    document.getElementById("lightbox").classList.add("show");
+
+    document.body.style.overflow="hidden";
+  });
+});
+
+function closeLightbox(){
+  document.getElementById("lightbox").classList.remove("show");
+  document.body.style.overflow="";
+} 
 </script>
 
 </body>
