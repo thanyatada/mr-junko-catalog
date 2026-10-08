@@ -159,7 +159,6 @@ body{
 .product img{
   width:100%;
   display:block;
-  cursor:zoom-in;
 }
 
 .code{
@@ -177,7 +176,6 @@ body{
 }
 
 @media(max-width:650px){
-
   .logo{
     font-size:30px;
   }
@@ -202,7 +200,6 @@ body{
     font-size:22px;
   }
 }
-
 /* IMAGE GALLERY */
 .lightbox{
   display:none;
@@ -267,39 +264,25 @@ body{
   border-radius:8px;
 }
 
-.lightbox-prev{
-  left:10px;
-}
+.lightbox-prev{ left:10px; }
+.lightbox-next{ right:10px; }
 
-.lightbox-next{
-  right:10px;
-}
+.product img{ cursor:zoom-in; }
 
 @media(max-width:650px){
-
-  .lightbox{
-    padding:10px;
-  }
-
+  .lightbox{ padding:10px; }
   .lightbox img{
     max-width:100%;
     max-height:80vh;
   }
-
   .lightbox-prev,
   .lightbox-next{
     font-size:42px;
     width:44px;
     height:65px;
   }
-
-  .lightbox-prev{
-    left:3px;
-  }
-
-  .lightbox-next{
-    right:3px;
-  }
+  .lightbox-prev{ left:3px; }
+  .lightbox-next{ right:3px; }
 }
 
 </style>
@@ -313,1058 +296,1150 @@ body{
 </header>
 
 <nav class="nav">
-
-  <button
-    onclick="showCategory('new',this)"
-    class="active">
-    🆕 ลายใหม่ล่าสุด
-  </button>
-
-  <button onclick="toggleMen(this)">
-    👔 ผู้ชาย ▼
-  </button>
-
-  <button onclick="showCategory('women',this)">
-    👚 ผู้หญิง
-  </button>
-
-  <button onclick="showCategory('kids',this)">
-    🧒 เด็ก
-  </button>
-
+  <button onclick="showCategory('new',this)" class="active">🆕 ลายใหม่ล่าสุด</button>
+  <button onclick="toggleMen(this)">👔 ผู้ชาย ▼</button>
+  <button onclick="showCategory('women',this)">👚 ผู้หญิง</button>
+  <button onclick="showCategory('kids',this)">🧒 เด็ก</button>
 </nav>
 
-
-<!-- MEN MENU -->
 <div id="menPanel" class="men-panel">
 
   <div class="men-types">
-
-    <button onclick="showMenType('shirt')">
-      👔 เสื้อเชิ้ต
-    </button>
-
-    <button onclick="showMenType('tshirt')">
-      👕 เสื้อคอกลม
-    </button>
-
-    <button onclick="showMenType('set')">
-      👔➕🩳 ชุดเสื้อ+กางเกง
-    </button>
-
+    <button onclick="showMenType('shirt')">👔 เสื้อเชิ้ต</button>
+    <button onclick="showMenType('tshirt')">👕 เสื้อคอกลม</button>
+    <button onclick="showMenType('set')">👔➕🩳 ชุดเสื้อ+กางเกง</button>
   </div>
 
-
-  <!-- SHIRT -->
   <div id="shirtPatterns" class="pattern-panel">
-
-    <button onclick="filterPattern('fish')">
-      🐟 ลายปลา
-    </button>
-
-    <button onclick="filterPattern('tiger')">
-      🐯 ลายเสือ
-    </button>
-
-    <button onclick="filterPattern('dragon')">
-      🐉 ลายมังกร
-    </button>
-
-    <button onclick="filterPattern('japanese')">
-      🌸 ลายญี่ปุ่น
-    </button>
-
-    <button onclick="filterPattern('baroque')">
-      ✨ ลายหลุยส์
-    </button>
-
-    <button onclick="filterPattern('other')">
-      ลายอื่นๆ
-    </button>
-
+    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
+    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
+    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
+    <button onclick="filterPattern('japanese')">🌸 ลายญี่ปุ่น</button>
+    <button onclick="filterPattern('baroque')">✨ ลายหลุยส์</button>
+    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
   </div>
 
-
-  <!-- T-SHIRT -->
   <div id="tshirtPatterns" class="pattern-panel">
-
-    <button onclick="filterPattern('fish')">
-      🐟 ลายปลา
-    </button>
-
-    <button onclick="filterPattern('tiger')">
-      🐯 ลายเสือ
-    </button>
-
-    <button onclick="filterPattern('dragon')">
-      🐉 ลายมังกร
-    </button>
-
-    <button onclick="filterPattern('other')">
-      ลายอื่นๆ
-    </button>
-
+    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
+    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
+    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
+    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
   </div>
 
-
-  <!-- SHIRT + PANTS SET -->
   <div id="setPatterns" class="pattern-panel">
-
-    <button onclick="filterPattern('fish')">
-      🐟 ลายปลา
-    </button>
-
-    <button onclick="filterPattern('tiger')">
-      🐯 ลายเสือ
-    </button>
-
-    <button onclick="filterPattern('dragon')">
-      🐉 ลายมังกร
-    </button>
-
-    <button onclick="filterPattern('japanese')">
-      🌸 ลายญี่ปุ่น
-    </button>
-
-    <button onclick="filterPattern('baroque')">
-      ✨ ลายหลุยส์
-    </button>
-
-    <button onclick="filterPattern('other')">
-      ลายอื่นๆ
-    </button>
-
+    <button onclick="filterPattern('fish')">🐟 ลายปลา</button>
+    <button onclick="filterPattern('tiger')">🐯 ลายเสือ</button>
+    <button onclick="filterPattern('dragon')">🐉 ลายมังกร</button>
+    <button onclick="filterPattern('japanese')">🌸 ลายญี่ปุ่น</button>
+    <button onclick="filterPattern('baroque')">✨ ลายหลุยส์</button>
+    <button onclick="filterPattern('other')">ลายอื่นๆ</button>
   </div>
 
 </div>
 
-
 <main class="container">
 
-  <h2 id="sectionTitle" class="section-title">
-    🆕 ลายใหม่ล่าสุด
-  </h2>
+  <h2 id="sectionTitle" class="section-title">🆕 ลายใหม่ล่าสุด</h2>
 
   <div class="search-box">
-
     <input
       id="search"
       type="text"
       placeholder="🔎 ค้นหารหัสสินค้า เช่น N-4056 หรือ 4056"
       oninput="searchProducts()">
-
   </div>
-
 
   <div id="products" class="grid">
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-3919.jpg" alt="N-3919">
-
-      <div class="code">
-        N-3919
-      </div>
-
+      <div class="code">N-3919</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-3982.jpg" alt="N-3982">
-
-      <div class="code">
-        N-3982
-      </div>
-
+      <div class="code">N-3982</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-3989.jpg" alt="N-3989">
-
-      <div class="code">
-        N-3989
-      </div>
-
+      <div class="code">N-3989</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-3992.jpg" alt="N-3992">
-
-      <div class="code">
-        N-3992
-      </div>
-
+      <div class="code">N-3992</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="japanese">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
       <img src="N-3993.jpg" alt="N-3993">
-
-      <div class="code">
-        N-3993
-      </div>
-
+      <div class="code">N-3993</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-3995.jpg" alt="N-3995">
-
-      <div class="code">
-        N-3995
-      </div>
-
+      <div class="code">N-3995</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-3997.jpg" alt="N-3997">
-
-      <div class="code">
-        N-3997
-      </div>
-
+      <div class="code">N-3997</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-4006.jpg" alt="N-4006">
-
-      <div class="code">
-        N-4006
-      </div>
-
+      <div class="code">N-4006</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-4009.jpg" alt="N-4009">
-
-      <div class="code">
-        N-4009
-      </div>
-
+      <div class="code">N-4009</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="japanese">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="japanese">
       <img src="N-4035.jpg" alt="N-4035">
-
-      <div class="code">
-        N-4035
-      </div>
-
+      <div class="code">N-4035</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-4040.jpg" alt="N-4040">
-
-      <div class="code">
-        N-4040
-      </div>
-
+      <div class="code">N-4040</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-4056.jpg" alt="N-4056">
-
-      <div class="code">
-        N-4056
-      </div>
-
+      <div class="code">N-4056</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="other">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="other">
       <img src="N-4073.jpg" alt="N-4073">
-
-      <div class="code">
-        N-4073
-      </div>
-
+      <div class="code">N-4073</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-4078.jpg" alt="N-4078">
-
-      <div class="code">
-        N-4078
-      </div>
-
+      <div class="code">N-4078</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-4079.jpg" alt="N-4079">
-
-      <div class="code">
-        N-4079
-      </div>
-
+      <div class="code">N-4079</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="fish">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="fish">
       <img src="N-4102.jpg" alt="N-4102">
-
-      <div class="code">
-        N-4102
-      </div>
-
+      <div class="code">N-4102</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-4108.jpg" alt="N-4108">
-
-      <div class="code">
-        N-4108
-      </div>
-
+      <div class="code">N-4108</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="tiger">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="tiger">
       <img src="N-4119.jpg" alt="N-4119">
-
-      <div class="code">
-        N-4119
-      </div>
-
+      <div class="code">N-4119</div>
     </div>
 
-
-    <div
-      class="product"
-      data-category="men new"
-      data-type="shirt"
-      data-pattern="baroque">
-
+    <div class="product" data-category="men new" data-type="shirt" data-pattern="baroque">
       <img src="N-4142.jpg" alt="N-4142">
-
-      <div class="code">
-        N-4142
-      </div>
-
+      <div class="code">N-4142</div>
     </div>
 
 
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-030.jpg" alt="SL-030">
+      <div class="code">SL-030</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-054.jpg" alt="SL-054">
+      <div class="code">SL-054</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-062.jpg" alt="SL-062">
+      <div class="code">SL-062</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-120.jpg" alt="SL-120">
+      <div class="code">SL-120</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-138.jpg" alt="SL-138">
+      <div class="code">SL-138</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-156.jpg" alt="SL-156">
+      <div class="code">SL-156</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-182.jpg" alt="SL-182">
+      <div class="code">SL-182</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-196.jpg" alt="SL-196">
+      <div class="code">SL-196</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-204.jpg" alt="SL-204">
+      <div class="code">SL-204</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-230.jpg" alt="SL-230">
+      <div class="code">SL-230</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-250.jpg" alt="SL-250">
+      <div class="code">SL-250</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-262.jpg" alt="SL-262">
+      <div class="code">SL-262</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-265.jpg" alt="SL-265">
+      <div class="code">SL-265</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-330.jpg" alt="SL-330">
+      <div class="code">SL-330</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-340.jpg" alt="SL-340">
+      <div class="code">SL-340</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-356.jpg" alt="SL-356">
+      <div class="code">SL-356</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-368.jpg" alt="SL-368">
+      <div class="code">SL-368</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-416.jpg" alt="SL-416">
+      <div class="code">SL-416</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-424.jpg" alt="SL-424">
+      <div class="code">SL-424</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SL-445.jpg" alt="SL-445">
+      <div class="code">SL-445</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-066.jpg" alt="SN-066">
+      <div class="code">SN-066</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-623.jpg" alt="SN-623">
+      <div class="code">SN-623</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-710.jpg" alt="SN-710">
+      <div class="code">SN-710</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-796.jpg" alt="SN-796">
+      <div class="code">SN-796</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-997.jpg" alt="SN-997">
+      <div class="code">SN-997</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1012.jpg" alt="SN-1012">
+      <div class="code">SN-1012</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1095.jpg" alt="SN-1095">
+      <div class="code">SN-1095</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1112.jpg" alt="SN-1112">
+      <div class="code">SN-1112</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1302.jpg" alt="SN-1302">
+      <div class="code">SN-1302</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1314.jpg" alt="SN-1314">
+      <div class="code">SN-1314</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1783.jpg" alt="SN-1783">
+      <div class="code">SN-1783</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-1823.jpg" alt="SN-1823">
+      <div class="code">SN-1823</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-2095.jpg" alt="SN-2095">
+      <div class="code">SN-2095</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-2772.jpg" alt="SN-2772">
+      <div class="code">SN-2772</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-2966.jpg" alt="SN-2966">
+      <div class="code">SN-2966</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3162.jpg" alt="SN-3162">
+      <div class="code">SN-3162</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3184.jpg" alt="SN-3184">
+      <div class="code">SN-3184</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3200.jpg" alt="SN-3200">
+      <div class="code">SN-3200</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3201.jpg" alt="SN-3201">
+      <div class="code">SN-3201</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3203.jpg" alt="SN-3203">
+      <div class="code">SN-3203</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3204.jpg" alt="SN-3204">
+      <div class="code">SN-3204</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3206.jpg" alt="SN-3206">
+      <div class="code">SN-3206</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3207.jpg" alt="SN-3207">
+      <div class="code">SN-3207</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3211.jpg" alt="SN-3211">
+      <div class="code">SN-3211</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3213.jpg" alt="SN-3213">
+      <div class="code">SN-3213</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3218.jpg" alt="SN-3218">
+      <div class="code">SN-3218</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3219.jpg" alt="SN-3219">
+      <div class="code">SN-3219</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3231.jpg" alt="SN-3231">
+      <div class="code">SN-3231</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3239.jpg" alt="SN-3239">
+      <div class="code">SN-3239</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3242.jpg" alt="SN-3242">
+      <div class="code">SN-3242</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3254.jpg" alt="SN-3254">
+      <div class="code">SN-3254</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3269.jpg" alt="SN-3269">
+      <div class="code">SN-3269</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3272.jpg" alt="SN-3272">
+      <div class="code">SN-3272</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3284.jpg" alt="SN-3284">
+      <div class="code">SN-3284</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3290.jpg" alt="SN-3290">
+      <div class="code">SN-3290</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3302.jpg" alt="SN-3302">
+      <div class="code">SN-3302</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3305.jpg" alt="SN-3305">
+      <div class="code">SN-3305</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3317.jpg" alt="SN-3317">
+      <div class="code">SN-3317</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3324.jpg" alt="SN-3324">
+      <div class="code">SN-3324</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3357.jpg" alt="SN-3357">
+      <div class="code">SN-3357</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3369.jpg" alt="SN-3369">
+      <div class="code">SN-3369</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3391.jpg" alt="SN-3391">
+      <div class="code">SN-3391</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3401.jpg" alt="SN-3401">
+      <div class="code">SN-3401</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3403.jpg" alt="SN-3403">
+      <div class="code">SN-3403</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3410.jpg" alt="SN-3410">
+      <div class="code">SN-3410</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3413.jpg" alt="SN-3413">
+      <div class="code">SN-3413</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3433.jpg" alt="SN-3433">
+      <div class="code">SN-3433</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3435.jpg" alt="SN-3435">
+      <div class="code">SN-3435</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3440.jpg" alt="SN-3440">
+      <div class="code">SN-3440</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3443.jpg" alt="SN-3443">
+      <div class="code">SN-3443</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3446.jpg" alt="SN-3446">
+      <div class="code">SN-3446</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3467.jpg" alt="SN-3467">
+      <div class="code">SN-3467</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3558.jpg" alt="SN-3558">
+      <div class="code">SN-3558</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3560.jpg" alt="SN-3560">
+      <div class="code">SN-3560</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3562.jpg" alt="SN-3562">
+      <div class="code">SN-3562</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3568.jpg" alt="SN-3568">
+      <div class="code">SN-3568</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3570-88.jpg" alt="SN-3570-88">
+      <div class="code">SN-3570-88</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3570.jpg" alt="SN-3570">
+      <div class="code">SN-3570</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3576.jpg" alt="SN-3576">
+      <div class="code">SN-3576</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3583.jpg" alt="SN-3583">
+      <div class="code">SN-3583</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3593.jpg" alt="SN-3593">
+      <div class="code">SN-3593</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3594.jpg" alt="SN-3594">
+      <div class="code">SN-3594</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3603.jpg" alt="SN-3603">
+      <div class="code">SN-3603</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3606.jpg" alt="SN-3606">
+      <div class="code">SN-3606</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3607.jpg" alt="SN-3607">
+      <div class="code">SN-3607</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3625.jpg" alt="SN-3625">
+      <div class="code">SN-3625</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3629.jpg" alt="SN-3629">
+      <div class="code">SN-3629</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3637.jpg" alt="SN-3637">
+      <div class="code">SN-3637</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3641.jpg" alt="SN-3641">
+      <div class="code">SN-3641</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3653.jpg" alt="SN-3653">
+      <div class="code">SN-3653</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3660.jpg" alt="SN-3660">
+      <div class="code">SN-3660</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3664.jpg" alt="SN-3664">
+      <div class="code">SN-3664</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3671.jpg" alt="SN-3671">
+      <div class="code">SN-3671</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3678.jpg" alt="SN-3678">
+      <div class="code">SN-3678</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3685.jpg" alt="SN-3685">
+      <div class="code">SN-3685</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3689.jpg" alt="SN-3689">
+      <div class="code">SN-3689</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3691.jpg" alt="SN-3691">
+      <div class="code">SN-3691</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3692.jpg" alt="SN-3692">
+      <div class="code">SN-3692</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3697.jpg" alt="SN-3697">
+      <div class="code">SN-3697</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3700.jpg" alt="SN-3700">
+      <div class="code">SN-3700</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3707.jpg" alt="SN-3707">
+      <div class="code">SN-3707</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3731.jpg" alt="SN-3731">
+      <div class="code">SN-3731</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3732.jpg" alt="SN-3732">
+      <div class="code">SN-3732</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3733.jpg" alt="SN-3733">
+      <div class="code">SN-3733</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3738.jpg" alt="SN-3738">
+      <div class="code">SN-3738</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3740.jpg" alt="SN-3740">
+      <div class="code">SN-3740</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3747-1.jpg" alt="SN-3747-1">
+      <div class="code">SN-3747-1</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3747.jpg" alt="SN-3747">
+      <div class="code">SN-3747</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3751.jpg" alt="SN-3751">
+      <div class="code">SN-3751</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3779.jpg" alt="SN-3779">
+      <div class="code">SN-3779</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3803.jpg" alt="SN-3803">
+      <div class="code">SN-3803</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3821.jpg" alt="SN-3821">
+      <div class="code">SN-3821</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3822.jpg" alt="SN-3822">
+      <div class="code">SN-3822</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3832.jpg" alt="SN-3832">
+      <div class="code">SN-3832</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3852.jpg" alt="SN-3852">
+      <div class="code">SN-3852</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3861.jpg" alt="SN-3861">
+      <div class="code">SN-3861</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3870.jpg" alt="SN-3870">
+      <div class="code">SN-3870</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3876.jpg" alt="SN-3876">
+      <div class="code">SN-3876</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3880.jpg" alt="SN-3880">
+      <div class="code">SN-3880</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3883.jpg" alt="SN-3883">
+      <div class="code">SN-3883</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3885.jpg" alt="SN-3885">
+      <div class="code">SN-3885</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3886.jpg" alt="SN-3886">
+      <div class="code">SN-3886</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3887-1.jpg" alt="SN-3887-1">
+      <div class="code">SN-3887-1</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3887.jpg" alt="SN-3887">
+      <div class="code">SN-3887</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3889.jpg" alt="SN-3889">
+      <div class="code">SN-3889</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3890.jpg" alt="SN-3890">
+      <div class="code">SN-3890</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3897.jpg" alt="SN-3897">
+      <div class="code">SN-3897</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3899.jpg" alt="SN-3899">
+      <div class="code">SN-3899</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3928.jpg" alt="SN-3928">
+      <div class="code">SN-3928</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3930.jpg" alt="SN-3930">
+      <div class="code">SN-3930</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3941.jpg" alt="SN-3941">
+      <div class="code">SN-3941</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3942.jpg" alt="SN-3942">
+      <div class="code">SN-3942</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3956.jpg" alt="SN-3956">
+      <div class="code">SN-3956</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3958.jpg" alt="SN-3958">
+      <div class="code">SN-3958</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-3972.jpg" alt="SN-3972">
+      <div class="code">SN-3972</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-4044.jpg" alt="SN-4044">
+      <div class="code">SN-4044</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SN-4154.jpg" alt="SN-4154">
+      <div class="code">SN-4154</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-50.jpg" alt="SPC-50">
+      <div class="code">SPC-50</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-93.jpg" alt="SPC-93">
+      <div class="code">SPC-93</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-140.jpg" alt="SPC-140">
+      <div class="code">SPC-140</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-182.jpg" alt="SPC-182">
+      <div class="code">SPC-182</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-196.jpg" alt="SPC-196">
+      <div class="code">SPC-196</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-234.jpg" alt="SPC-234">
+      <div class="code">SPC-234</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-264.jpg" alt="SPC-264">
+      <div class="code">SPC-264</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-344.jpg" alt="SPC-344">
+      <div class="code">SPC-344</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-417.jpg" alt="SPC-417">
+      <div class="code">SPC-417</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-545.jpg" alt="SPC-545">
+      <div class="code">SPC-545</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-558.jpg" alt="SPC-558">
+      <div class="code">SPC-558</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-572.jpg" alt="SPC-572">
+      <div class="code">SPC-572</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-573.jpg" alt="SPC-573">
+      <div class="code">SPC-573</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-574.jpg" alt="SPC-574">
+      <div class="code">SPC-574</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-589.jpg" alt="SPC-589">
+      <div class="code">SPC-589</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-614.jpg" alt="SPC-614">
+      <div class="code">SPC-614</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-621.jpg" alt="SPC-621">
+      <div class="code">SPC-621</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-657.jpg" alt="SPC-657">
+      <div class="code">SPC-657</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-665.jpg" alt="SPC-665">
+      <div class="code">SPC-665</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-692.jpg" alt="SPC-692">
+      <div class="code">SPC-692</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-694.jpg" alt="SPC-694">
+      <div class="code">SPC-694</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-698.jpg" alt="SPC-698">
+      <div class="code">SPC-698</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-699.jpg" alt="SPC-699">
+      <div class="code">SPC-699</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-703.jpg" alt="SPC-703">
+      <div class="code">SPC-703</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-723.jpg" alt="SPC-723">
+      <div class="code">SPC-723</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-743.jpg" alt="SPC-743">
+      <div class="code">SPC-743</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-745.jpg" alt="SPC-745">
+      <div class="code">SPC-745</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-749.jpg" alt="SPC-749">
+      <div class="code">SPC-749</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-783.jpg" alt="SPC-783">
+      <div class="code">SPC-783</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-841.jpg" alt="SPC-841">
+      <div class="code">SPC-841</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-871.jpg" alt="SPC-871">
+      <div class="code">SPC-871</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-887.jpg" alt="SPC-887">
+      <div class="code">SPC-887</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-899.jpg" alt="SPC-899">
+      <div class="code">SPC-899</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-906.jpg" alt="SPC-906">
+      <div class="code">SPC-906</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-929.jpg" alt="SPC-929">
+      <div class="code">SPC-929</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-967.jpg" alt="SPC-967">
+      <div class="code">SPC-967</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1022.jpg" alt="SPC-1022">
+      <div class="code">SPC-1022</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1058.jpg" alt="SPC-1058">
+      <div class="code">SPC-1058</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1062.jpg" alt="SPC-1062">
+      <div class="code">SPC-1062</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1095.jpg" alt="SPC-1095">
+      <div class="code">SPC-1095</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1112.jpg" alt="SPC-1112">
+      <div class="code">SPC-1112</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1114.jpg" alt="SPC-1114">
+      <div class="code">SPC-1114</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1185.jpg" alt="SPC-1185">
+      <div class="code">SPC-1185</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/SPC-1186.jpg" alt="SPC-1186">
+      <div class="code">SPC-1186</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/TSN-3797.jpg" alt="TSN-3797">
+      <div class="code">TSN-3797</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/TSN-3897-99.jpg" alt="TSN-3897-99">
+      <div class="code">TSN-3897-99</div>
+    </div>
+    <div class="product" data-category="men" data-type="set" data-pattern="other">
+      <img loading="lazy" src="sets/TSN-3978-99.jpg" alt="TSN-3978-99">
+      <div class="code">TSN-3978-99</div>
+    </div>
   </div>
-
 </main>
 
-
-<!-- IMAGE GALLERY -->
 <div id="lightbox" class="lightbox">
-
-  <span
-    class="lightbox-close"
-    onclick="closeLightbox()">
-    &times;
-  </span>
-
-  <button
-    class="lightbox-prev"
-    onclick="event.stopPropagation(); changeImage(-1)">
-    &#8249;
-  </button>
-
-  <img
-    id="lightboxImage"
-    src=""
-    alt="">
-
-  <button
-    class="lightbox-next"
-    onclick="event.stopPropagation(); changeImage(1)">
-    &#8250;
-  </button>
-
-  <div
-    id="lightboxCode"
-    class="lightbox-code">
-  </div>
-
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <button class="lightbox-prev" onclick="event.stopPropagation(); changeImage(-1)">&#8249;</button>
+  <img id="lightboxImage" src="" alt="">
+  <button class="lightbox-next" onclick="event.stopPropagation(); changeImage(1)">&#8250;</button>
+  <div id="lightboxCode" class="lightbox-code"></div>
 </div>
 
-
 <script>
-
 let currentType = "";
 
-
-/* HIDE PRODUCTS */
 function hideAll(){
-
-  document
-    .querySelectorAll(".product")
-    .forEach(p=>{
-
-      p.style.display="none";
-
-    });
-
+  document.querySelectorAll(".product").forEach(p=>{
+    p.style.display="none";
+  });
 }
 
-
-/* ACTIVE MAIN MENU */
 function setActive(btn){
+  document.querySelectorAll(".nav button").forEach(b=>{
+    b.classList.remove("active");
+  });
 
-  document
-    .querySelectorAll(".nav button")
-    .forEach(b=>{
-
-      b.classList.remove("active");
-
-    });
-
-  if(btn){
-    btn.classList.add("active");
-  }
-
+  if(btn) btn.classList.add("active");
 }
 
-
-/* MAIN CATEGORY */
 function showCategory(category,btn){
 
-  document
-    .getElementById("menPanel")
-    .classList.remove("show");
+  document.getElementById("menPanel").classList.remove("show");
 
   setActive(btn);
 
   hideAll();
 
-  const title =
-    document.getElementById("sectionTitle");
-
+  const title=document.getElementById("sectionTitle");
 
   if(category==="new"){
+    title.textContent="🆕 ลายใหม่ล่าสุด";
 
-    title.textContent =
-      "🆕 ลายใหม่ล่าสุด";
-
-    document
-      .querySelectorAll(".product")
-      .forEach(p=>{
-
-        if(
-          p.dataset.category.includes("new")
-        ){
-          p.style.display="block";
-        }
-
-      });
-
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("new")){
+        p.style.display="block";
+      }
+    });
   }
-
 
   if(category==="women"){
+    title.textContent="👚 เสื้อผู้หญิง";
 
-    title.textContent =
-      "👚 เสื้อผู้หญิง";
-
-    document
-      .querySelectorAll(".product")
-      .forEach(p=>{
-
-        if(
-          p.dataset.category.includes("women")
-        ){
-          p.style.display="block";
-        }
-
-      });
-
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("women")){
+        p.style.display="block";
+      }
+    });
   }
-
 
   if(category==="kids"){
+    title.textContent="🧒 เสื้อเด็ก";
 
-    title.textContent =
-      "🧒 เสื้อเด็ก";
-
-    document
-      .querySelectorAll(".product")
-      .forEach(p=>{
-
-        if(
-          p.dataset.category.includes("kids")
-        ){
-          p.style.display="block";
-        }
-
-      });
-
+    document.querySelectorAll(".product").forEach(p=>{
+      if(p.dataset.category.includes("kids")){
+        p.style.display="block";
+      }
+    });
   }
-
 }
 
-
-/* MEN */
 function toggleMen(btn){
 
   setActive(btn);
 
-  const panel =
-    document.getElementById("menPanel");
-
+  const panel=document.getElementById("menPanel");
   panel.classList.toggle("show");
 
-  document
-    .getElementById("sectionTitle")
-    .textContent =
-      "👔 เสื้อผู้ชาย";
+  document.getElementById("sectionTitle").textContent="👔 เสื้อผู้ชาย";
 
   hideAll();
 
-  document
-    .querySelectorAll(".product")
-    .forEach(p=>{
-
-      if(
-        p.dataset.category.includes("men")
-      ){
-        p.style.display="block";
-      }
-
-    });
-
+  document.querySelectorAll(".product").forEach(p=>{
+    if(p.dataset.category.includes("men")){
+      p.style.display="block";
+    }
+  });
 }
 
-
-/* MEN TYPE */
 function showMenType(type){
 
   currentType=type;
 
-  document
-    .getElementById("shirtPatterns")
-    .classList.remove("show");
-
-  document
-    .getElementById("tshirtPatterns")
-    .classList.remove("show");
-
-  document
-    .getElementById("setPatterns")
-    .classList.remove("show");
-
+  document.getElementById("shirtPatterns").classList.remove("show");
+  document.getElementById("tshirtPatterns").classList.remove("show");
+  document.getElementById("setPatterns").classList.remove("show");
 
   if(type==="shirt"){
-
-    document
-      .getElementById("shirtPatterns")
-      .classList.add("show");
-
-    document
-      .getElementById("sectionTitle")
-      .textContent =
-        "👔 เสื้อเชิ้ตผู้ชาย";
-
+    document.getElementById("shirtPatterns").classList.add("show");
+    document.getElementById("sectionTitle").textContent="👔 เสื้อเชิ้ตผู้ชาย";
   }
-
 
   if(type==="tshirt"){
-
-    document
-      .getElementById("tshirtPatterns")
-      .classList.add("show");
-
-    document
-      .getElementById("sectionTitle")
-      .textContent =
-        "👕 เสื้อคอกลมผู้ชาย";
-
+    document.getElementById("tshirtPatterns").classList.add("show");
+    document.getElementById("sectionTitle").textContent="👕 เสื้อคอกลมผู้ชาย";
   }
-
 
   if(type==="set"){
-
-    document
-      .getElementById("setPatterns")
-      .classList.add("show");
-
-    document
-      .getElementById("sectionTitle")
-      .textContent =
-        "👔➕🩳 ชุดเสื้อ+กางเกงผู้ชาย";
-
+    document.getElementById("setPatterns").classList.add("show");
+    document.getElementById("sectionTitle").textContent="👔➕🩳 ชุดเสื้อ+กางเกงผู้ชาย";
   }
-
 
   hideAll();
 
-
-  document
-    .querySelectorAll(".product")
-    .forEach(p=>{
-
-      if(
-        p.dataset.type===type
-      ){
-        p.style.display="block";
-      }
-
-    });
-
+  document.querySelectorAll(".product").forEach(p=>{
+    if(p.dataset.type===type){
+      p.style.display="block";
+    }
+  });
 }
 
-
-/* PATTERN FILTER */
 function filterPattern(pattern){
 
   hideAll();
 
-  document
-    .querySelectorAll(".product")
-    .forEach(p=>{
-
-      if(
-        p.dataset.type===currentType &&
-        p.dataset.pattern===pattern
-      ){
-        p.style.display="block";
-      }
-
-    });
-
+  document.querySelectorAll(".product").forEach(p=>{
+    if(
+      p.dataset.type===currentType &&
+      p.dataset.pattern===pattern
+    ){
+      p.style.display="block";
+    }
+  });
 }
 
-
-/* SEARCH */
 function searchProducts(){
 
-  const text =
-    document
-      .getElementById("search")
-      .value
-      .toLowerCase()
-      .replace(/\s/g,"");
-
+  const text=document.getElementById("search").value
+    .toLowerCase()
+    .replace(/\s/g,"");
 
   if(text===""){
-
-    document
-      .querySelectorAll(".product")
-      .forEach(p=>{
-
-        p.style.display="block";
-
-      });
-
+    document.querySelectorAll(".product").forEach(p=>{
+      p.style.display="block";
+    });
     return;
-
   }
 
+  document.querySelectorAll(".product").forEach(p=>{
 
-  document
-    .querySelectorAll(".product")
-    .forEach(p=>{
+    const code=p.querySelector(".code")
+      .textContent
+      .toLowerCase();
 
-      const code =
-        p.querySelector(".code")
-        .textContent
-        .toLowerCase();
+    const cleanCode=code.replace("n-","");
 
-      const cleanCode =
-        code.replace("n-","");
-
-
-      if(
-        code.includes(text) ||
-        cleanCode.includes(
-          text.replace("n-","")
-        )
-      ){
-
-        p.style.display="block";
-
-      }else{
-
-        p.style.display="none";
-
-      }
-
-    });
-
+    if(code.includes(text) || cleanCode.includes(text.replace("n-",""))){
+      p.style.display="block";
+    }else{
+      p.style.display="none";
+    }
+  });
 }
-
-
-/* =========================
-   IMAGE GALLERY
-========================= */
-
 let galleryProducts = [];
 let currentImageIndex = 0;
-
 let touchStartX = 0;
 let touchEndX = 0;
 
-
-/* GET ONLY VISIBLE PRODUCTS */
 function getVisibleProducts(){
-
-  return Array
-    .from(
-      document.querySelectorAll(".product")
-    )
-    .filter(p=>{
-
-      return (
-        window
-          .getComputedStyle(p)
-          .display !== "none"
-      );
-
-    });
-
+  return Array.from(document.querySelectorAll(".product")).filter(p=>{
+    return window.getComputedStyle(p).display !== "none";
+  });
 }
 
-
-/* OPEN IMAGE */
 function openLightbox(product){
-
-  galleryProducts =
-    getVisibleProducts();
-
-  currentImageIndex =
-    galleryProducts.indexOf(product);
-
+  galleryProducts = getVisibleProducts();
+  currentImageIndex = galleryProducts.indexOf(product);
 
   if(currentImageIndex < 0){
-
-    galleryProducts=[product];
-
-    currentImageIndex=0;
-
+    galleryProducts = [product];
+    currentImageIndex = 0;
   }
-
 
   showGalleryImage();
-
-
-  document
-    .getElementById("lightbox")
-    .classList.add("show");
-
-
-  document.body.style.overflow="hidden";
-
+  document.getElementById("lightbox").classList.add("show");
+  document.body.style.overflow = "hidden";
 }
 
-
-/* SHOW CURRENT IMAGE */
 function showGalleryImage(){
+  const product = galleryProducts[currentImageIndex];
+  if(!product) return;
 
-  const product =
-    galleryProducts[currentImageIndex];
+  const img = product.querySelector("img");
+  const code = product.querySelector(".code").textContent;
 
-  if(!product){
-    return;
-  }
-
-
-  const img =
-    product.querySelector("img");
-
-  const code =
-    product
-      .querySelector(".code")
-      .textContent;
-
-
-  document
-    .getElementById("lightboxImage")
-    .src =
-      img.src;
-
-
-  document
-    .getElementById("lightboxImage")
-    .alt =
-      code;
-
-
-  document
-    .getElementById("lightboxCode")
-    .textContent =
-      code;
-
+  document.getElementById("lightboxImage").src = img.src;
+  document.getElementById("lightboxImage").alt = code;
+  document.getElementById("lightboxCode").textContent = code;
 }
 
-
-/* NEXT / PREVIOUS */
 function changeImage(direction){
-
-  if(
-    galleryProducts.length <= 1
-  ){
-    return;
-  }
-
+  if(galleryProducts.length <= 1) return;
 
   currentImageIndex += direction;
 
-
-  if(
-    currentImageIndex >=
-    galleryProducts.length
-  ){
-
-    currentImageIndex=0;
-
+  if(currentImageIndex >= galleryProducts.length){
+    currentImageIndex = 0;
   }
-
-
-  if(
-    currentImageIndex < 0
-  ){
-
-    currentImageIndex =
-      galleryProducts.length - 1;
-
+  if(currentImageIndex < 0){
+    currentImageIndex = galleryProducts.length - 1;
   }
-
 
   showGalleryImage();
-
 }
 
-
-/* CLOSE IMAGE */
 function closeLightbox(){
-
-  document
-    .getElementById("lightbox")
-    .classList.remove("show");
-
-  document.body.style.overflow="";
-
+  document.getElementById("lightbox").classList.remove("show");
+  document.body.style.overflow = "";
 }
 
-
-/* CLICK PRODUCT IMAGE */
-document
-  .querySelectorAll(".product img")
-  .forEach(img=>{
-
-    img.addEventListener(
-      "click",
-      function(e){
-
-        e.stopPropagation();
-
-        openLightbox(
-          this.closest(".product")
-        );
-
-      }
-    );
-
+document.querySelectorAll(".product img").forEach(img=>{
+  img.addEventListener("click",function(e){
+    e.stopPropagation();
+    openLightbox(this.closest(".product"));
   });
+});
 
+const lightbox = document.getElementById("lightbox");
 
-const lightbox =
-  document.getElementById("lightbox");
-
-
-/* CLICK BLACK BACKGROUND TO CLOSE */
-lightbox.addEventListener(
-  "click",
-  function(e){
-
-    if(e.target===lightbox){
-      closeLightbox();
-    }
-
+lightbox.addEventListener("click",function(e){
+  if(e.target === lightbox){
+    closeLightbox();
   }
-);
+});
 
+lightbox.addEventListener("touchstart",function(e){
+  touchStartX = e.changedTouches[0].screenX;
+},{passive:true});
 
-/* MOBILE SWIPE */
-lightbox.addEventListener(
-  "touchstart",
-  function(e){
+lightbox.addEventListener("touchend",function(e){
+  touchEndX = e.changedTouches[0].screenX;
+  const distance = touchEndX - touchStartX;
 
-    touchStartX =
-      e.changedTouches[0].screenX;
+  if(Math.abs(distance) < 50) return;
 
-  },
-  {passive:true}
-);
-
-
-lightbox.addEventListener(
-  "touchend",
-  function(e){
-
-    touchEndX =
-      e.changedTouches[0].screenX;
-
-
-    const distance =
-      touchEndX - touchStartX;
-
-
-    if(
-      Math.abs(distance) < 50
-    ){
-      return;
-    }
-
-
-    /* SWIPE LEFT */
-    if(distance < 0){
-
-      changeImage(1);
-
-    }
-
-    /* SWIPE RIGHT */
-    else{
-
-      changeImage(-1);
-
-    }
-
-  },
-  {passive:true}
-);
-
-
-/* KEYBOARD */
-document.addEventListener(
-  "keydown",
-  function(e){
-
-    if(
-      !lightbox
-        .classList
-        .contains("show")
-    ){
-      return;
-    }
-
-
-    if(e.key==="ArrowRight"){
-
-      changeImage(1);
-
-    }
-
-
-    if(e.key==="ArrowLeft"){
-
-      changeImage(-1);
-
-    }
-
-
-    if(e.key==="Escape"){
-
-      closeLightbox();
-
-    }
-
+  if(distance < 0){
+    changeImage(1);
+  }else{
+    changeImage(-1);
   }
-);
+},{passive:true});
+
+document.addEventListener("keydown",function(e){
+  if(!lightbox.classList.contains("show")) return;
+
+  if(e.key === "ArrowRight") changeImage(1);
+  if(e.key === "ArrowLeft") changeImage(-1);
+  if(e.key === "Escape") closeLightbox();
+});
 
 </script>
 
